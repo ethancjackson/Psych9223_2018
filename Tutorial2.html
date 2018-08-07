@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PSYCH 9223 Tutorials</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    function loadPage(frameId, url) {
+      var x = document.getElementById(frameId);
+      if (x.style.display === "none") {
+        x.style.display = "flex";
+      } else {
+        x.style.display = "none";
+      }
+      document.getElementById(frameId).src = url;
+    }
+  </script>
+
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <h4 class="sitename"><a href="index.html">PSYCH 9223 Tutorials</a></h4>
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
+      <li><a href="Tutorial1.html"><i class="fa fa-envelope"></i>Tutorial 1 - Data Exploration</a></li>
+      <li class="active"><a href="Tutorial2.html"><i class="fa fa-envelope"></i>Tutorial 2 - General Linear Model</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="content">
+      <h1>Tutorial 2 - General Linear Model</h1>
+      <br>
+      <p>
+        The general linear model (GLM) is a fundamental statistical tool for regression analysis that is widely used for fMRI data.
+        In this tutorial, you will learn the basics of univariate BOLD timecourse modelling using the GLM. First, we will explore how GLM analysis
+        works one voxel at a time. Then we will move to BrainVoyager to do the analysis over an entire volume.
+      </p>
+      <p>
+        In fMRI data analysis, we are often interested in assessing how well recorded BOLD signal fits the expected response
+        from our experimental design. The GLM allows a <b>linear combination</b> of <b>predictors</b> to be optimally fit
+        to a timecourse. Let's consider a simple example using one predictor.
+      </p>
+
+      <p>
+        Recall that the GLM is used to model data using the form <b>y = β0 + β1X1 + β2X2 + ... + βnXn + e</b> where <b>y</b> is
+        the observed or recorded signal, <b><β0</b> is a constant or intercept adjustment, <b>β1 ... βn</b> are the beta weights or scaling factors,
+        and <b>X1 ... Xn</b> represent the expected haemodynamic response, according to the design matrix.
+      </p>
+
+      <p>
+        In the following plot, adjust the sliders until you find the beta weight and constant value that best fits the 'data'.
+      </p>
+
+      <input type="button" value="Show/Hide" onclick="loadPage('Ex1');"/>
+      <div id='Ex1' style="display: none;">
+        <iframe id="frame1" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM-Sine'></iframe>
+      </div>
+
+      <p>
+
+      </p>
+
+      <p>
+
+        In the following example, Gaussian noise is added around the sine wave. What can you say about the residual once
+        the optimal beta weight and constant is found?
+
+      </p>
+
+      <input type="button" value="Show/Hide" onclick="loadPage('Ex2');"/>
+      <div id='Ex2' style="display: none;">
+        <iframe id="frame2" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM-Sine-Noise'></iframe>
+      </div>
+
+      <p>
+        The following example is taken from a 2 condition + baseline experiment where participants were shown pictures of faces and hands in blocks.
+      </p>
+
+      <input type="button" value="Show/Hide" onclick="loadPage('Ex3');"/>
+      <div id='Ex3' style="display: none;">
+        <iframe id="frame3" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM'></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
