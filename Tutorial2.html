@@ -20,68 +20,125 @@
 </head>
 <body>
 <div class="container">
+
   <div class="sidebar">
     <h4 class="sitename"><a href="index.html">PSYCH 9223 Tutorials</a></h4>
     <ul>
-      <li><a href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
-      <li><a href="Tutorial1.html"><i class="fa fa-envelope"></i>Tutorial 1 - Data Exploration</a></li>
-      <li class="active"><a href="Tutorial2.html"><i class="fa fa-envelope"></i>Tutorial 2 - General Linear Model</a></li>
+      <li><a href="Tutorial1.html"><i class="fa fa-envelope"></i>fMRI Data Structures</a></li>
+      <li class="active"><a href="Tutorial2.html"><i class="fa fa-envelope"></i>General Linear Model</a></li>
+      <li><a href="Tutorial3.html"><i class="fa fa-envelope"></i>Motion Artifacts</a></li>
+      <li><a href="Tutorial4.html"><i class="fa fa-envelope"></i>Smoothing & Block Designs</a></li>
+      <li><a href="Tutorial5.html"><i class="fa fa-envelope"></i>ER Designs & Deconvolotion</a></li>
+      <li><a href="Tutorial6.html"><i class="fa fa-envelope"></i>Spatial Normalization and Group GLM</a></li>
+      <li><a href="Tutorial7.html"><i class="fa fa-envelope"></i>MVPA</a></li>
+      <li><a href="Tutorial8.html"><i class="fa fa-envelope"></i>ICA & Resting State fMRI</a></li>
     </ul>
   </div>
+
   <div class="main">
     <div class="content">
-      <h1>Tutorial 2 - General Linear Model</h1>
+      <div class="header sticky" id="myHeader">
+        <h1>Tutorial 2 - General Linear Model (One Subject, One Run)</h1>
+      </div>
       <br>
-      <p>
-        The general linear model (GLM) is a fundamental statistical tool for regression analysis that is widely used for fMRI data.
-        In this tutorial, you will learn the basics of univariate BOLD timecourse modelling using the GLM. First, we will explore how GLM analysis
-        works one voxel at a time. Then we will move to BrainVoyager to do the analysis over an entire volume.
+
+      <p><strong><span style="font-family: 'Arial',sans-serif;">Goals</span></strong></p>
+      &ensp; &ensp; &bull; &ensp;  To develop an intuitive understanding of the GLM for univariate, single-subject, single-run fMRI data analysis<br>
+      &ensp; &ensp; &bull; &ensp;  To understand the significance of beta weights in GLM analysis<br>
+      &ensp; &ensp; &bull; &ensp;  To understand the significance of residuals in GLM analysis<br>
+      &ensp; &ensp; &bull; &ensp;  To learn to perform single-subject GLM analysis in BrainVoyager<br>
+      &ensp; &ensp; &bull; &ensp;  To learn to interpret statistical analysis of beta weights using BrainVoyager<br>
+
+
+      <p><strong><span style="font-family: 'Arial',sans-serif;">Background</span></strong></p>
+      <p><span style="font-family: 'Arial',sans-serif;">The general linear model (GLM) is a fundamental statistical tool for regression analysis that is widely applied to fMRI data. In this tutorial, you will learn the basics of univariate BOLD timecourse modelling using the GLM. First, we will explore how GLM analysis works one voxel at a time. Then we will move to BrainVoyager to do the analysis and apply statistical maps over an entire volume. </span>
       </p>
-      <p>
-        In fMRI data analysis, we are often interested in assessing how well recorded BOLD signal fits the expected response
-        from our experimental design. The GLM allows a <b>linear combination</b> of <b>predictors</b> to be optimally fit
-        to a timecourse. Let's consider a simple example using one predictor.
+      <p><span
+        style="font-family: 'Arial',sans-serif;">Recall that the GLM is used to model data using the form <strong>y = &beta;<sub>0</sub> + &beta;<sub>1</sub>X<sub>1</sub> + &beta;<sub>2</sub>X<sub>2</sub> + ... + &beta;<sub>n</sub>X<sub>n</sub> + e</strong> where <strong>y</strong> is the observed or recorded data, <strong>&beta;<sub>0</sub></strong> is a constant or intercept adjustment, <strong>&beta;<sub>1</sub> ... &beta;<sub>n</sub></strong> are the beta weights or scaling factors, and <strong>X<sub>1</sub> ... X<sub>n</sub></strong> are the independent variables or predictors. </span>
+      </p>
+      <p><span style="font-family: 'Arial',sans-serif;">In fMRI data analysis, we are often interested in determining how well a set of predictors for expected response fits the observed or recorded signal. The GLM allows a <strong>linear combination</strong> of <strong>predictors</strong> to be optimally fit to a timecourse. Let's first consider a simple example using one predictor. </span>
       </p>
 
       <p>
-        Recall that the GLM is used to model data using the form <b>y = β0 + β1X1 + β2X2 + ... + βnXn + e</b> where <b>y</b> is
-        the observed or recorded signal, <b><β0</b> is a constant or intercept adjustment, <b>β1 ... βn</b> are the beta weights or scaling factors,
-        and <b>X1 ... Xn</b> represent the expected haemodynamic response, according to the design matrix.
+        In the following plot, our 'data' is shown in grey, and is presented in arbitrary units over time in seconds.
+        There is also a single predictor <b>X<sub>1</sub></b> shown in pink.
       </p>
 
       <p>
-        In the following plot, adjust the sliders until you find the beta weight and constant value that best fits the 'data'.
+        <b>Question 1: </b> Adjust the sliders until you find the beta weight and constant that best fit the data.
+        How can you tell that you've chosen the best possible beta weight and constant? Briefly describe both how the
+        predictor
+        fits the data, and the residual. What is the relationship between the data and the predictor here, i.e. what is
+        the
+        predictor, and how is it affected by changing the beta weight?
       </p>
 
       <input type="button" value="Show/Hide" onclick="loadPage('Ex1');"/>
       <div id='Ex1' style="display: none;">
-        <iframe id="frame1" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM-Sine'></iframe>
+        <iframe id="frame1" width="950" height="625" scrolling="no" src='http://localhost:5006/GLM-Sine'></iframe>
       </div>
 
       <p>
-
+        In practice, we don't expect to find a perfect fit between predictors and data. The following is a more
+        realistic
+        example with noisy data.
       </p>
 
       <p>
-
-        In the following example, Gaussian noise is added around the sine wave. What can you say about the residual once
-        the optimal beta weight and constant is found?
-
+        <b>Question 2: </b> Adjust the beta weight and constant in the following plot to find the best fit between
+        the predictor and the data. What values did you choose? What are the resulting error and sum of residual?
+        Describe
+        how the residual appears in relation to the data.
       </p>
 
       <input type="button" value="Show/Hide" onclick="loadPage('Ex2');"/>
       <div id='Ex2' style="display: none;">
-        <iframe id="frame2" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM-Sine-Noise'></iframe>
+        <iframe id="frame2" width="950" height="625" scrolling="no"
+                src='http://localhost:5006/GLM-Sine-Noise'></iframe>
       </div>
 
       <p>
-        The following example is taken from a 2 condition + baseline experiment where participants were shown pictures of faces and hands in blocks.
+        In fMRI analysis, we are usually interested in explaining signal variance in terms of multiple experimental
+        conditions,
+        not just a single one. The following examples use data taken from the course dataset &mdash; a 2 condition +
+        baseline variant of
+        the localizer sessions. The participant was shown images of faces and hands in alternating 16 second blocks.
+        The timecourses from three voxels were extracted, and two task-specific predictors were generated according to
+        the block design.
+      </p>
+
+      <p>
+        <b>Question 3a:</b> For Voxel 1, estimate the best fitting model parameters. Compare the residual to the one you
+        obtained in Question 2. What can you conclude about this Voxel's selectivity for images of either faces or
+        hands?
+      </p>
+      <p>
+        <b>Question 3b:</b> For Voxel 2, estimate the best fitting model parameters. Compare the beta weights and
+        squared errors
+        from your estimated models for Voxels 1 and 2. What can you conclude about these voxels' relative selectivity
+        for images of
+        faces or hands?
+      </p>
+      <p>
+        <b>Question 3c:</b> For Voxel 1, estimate the best fitting model parameters. Compare the residual and the
+        squared error to
+        what you observed for Voxels 1 and 2. From this analysis, can you conclude that Voxel 3 is not involved in the
+        task?
       </p>
 
       <input type="button" value="Show/Hide" onclick="loadPage('Ex3');"/>
       <div id='Ex3' style="display: none;">
-        <iframe id="frame3" width="1150" height="600" scrolling="no" src='http://localhost:5006/GLM'></iframe>
+        <iframe id="frame3" width="1025" height="625" scrolling="no" src='http://localhost:5006/GLM'></iframe>
       </div>
+
+      <br/>
+      <br/>
+
+      <div class="row-container">
+        <iframe id="content2" frameBorder="0" scrolling="no" height="450" src="Tutorial2_Content2.html"></iframe>
+      </div>
+
+
     </div>
   </div>
 </div>
