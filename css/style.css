@@ -35,7 +35,7 @@ body {
 	background-color: white;
 }
 .content {
-	padding: 50px 100px;
+	padding: 0px 50px;
 }
 
 /*
@@ -159,7 +159,7 @@ input[type="submit"] {
 
 .content-container {
   position:relative;
-  padding-bottom:90%;
+  padding-bottom:62%;
   padding-top:30px;
   height:0;
   overflow:hidden;
