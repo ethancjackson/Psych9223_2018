@@ -17,6 +17,12 @@
     }
   </script>
 
+  <script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+  </script>
+
 </head>
 <body>
 <div class="container">
@@ -40,7 +46,6 @@
       <div class="header sticky" id="myHeader">
         <h1>Tutorial 2 - General Linear Model (One Subject, One Run)</h1>
       </div>
-      <br>
 
       <p><strong><span style="font-family: 'Arial',sans-serif;">Goals</span></strong></p>
       &ensp; &ensp; &bull; &ensp;  To develop an intuitive understanding of the GLM for univariate, single-subject, single-run fMRI data analysis<br>
@@ -135,7 +140,7 @@
       <br/>
 
       <div class="row-container">
-        <iframe id="content2" frameBorder="0" scrolling="no" height="450" src="Tutorial2_Content2.html"></iframe>
+        <iframe id="content2" frameBorder="0" scrolling="no" onload="resizeIframe(this)" src="Tutorial2_Content2.html"></iframe>
       </div>
 
 

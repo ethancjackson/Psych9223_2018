@@ -16,7 +16,11 @@
       document.getElementById(frameId).src = url;
     }
   </script>
-
+  <script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -42,7 +46,7 @@
       </div>
 
       <div class="row-container">
-        <iframe id="frame1" class="row" frameBorder="0" scrolling="yes" src='Tutorial3_Content.html'></iframe>
+        <iframe id="frame1" class="row" frameBorder="0" scrolling="no" onload="resizeIframe(this)" src='Tutorial3_Content.html'></iframe>
       </div>
 
 
