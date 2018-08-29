@@ -67,8 +67,8 @@ ul {
 ul li {
 	list-style: none;
 	border-bottom: 1px solid white;
-	padding-left: 30px;
-	line-height: 60px;
+	padding-left: 10px;
+	line-height: 40px;
 }
 
 ul li:first-child {
@@ -83,7 +83,7 @@ ul li a {
 	text-decoration: none;
 	color: white;
 	display: block;
-	line-height: 60px;
+	line-height: 40px;
 }
 
 .active {
