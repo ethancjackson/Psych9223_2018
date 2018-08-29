@@ -16,6 +16,11 @@
       document.getElementById(frameId).src = url;
     }
   </script>
+  <script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+  </script>
 
 </head>
 <body>
@@ -28,11 +33,11 @@
       <li><a href="Tutorial2.html"><i class="fa fa-envelope"></i>General Linear Model</a></li>
       <li><a href="Tutorial3.html"><i class="fa fa-envelope"></i>Motion Artifacts</a></li>
       <li><a href="Tutorial4.html"><i class="fa fa-envelope"></i>Spatiotemporal Smoothing</a></li>
-      <li><a href="Tutorial4_1.html"><i class="fa fa-envelope"></i>Block Designs</a></li>
+      <li class="active"><a href="Tutorial4_1.html"><i class="fa fa-envelope"></i>Block Designs</a></li>
       <li><a href="Tutorial5.html"><i class="fa fa-envelope"></i>ER Designs & Deconvolution</a></li>
       <li><a href="Tutorial6.html"><i class="fa fa-envelope"></i>Spatial Normalization and Group GLM</a></li>
       <li><a href="Tutorial6_1.html"><i class="fa fa-envelope"></i>ROI Analysis & Non-Independence</a></li>
-      <li class="active"><a href="Tutorial7.html"><i class="fa fa-envelope"></i>MVPA</a></li>
+      <li><a href="Tutorial7.html"><i class="fa fa-envelope"></i>MVPA</a></li>
       <li><a href="Tutorial8.html"><i class="fa fa-envelope"></i>ICA & Resting State fMRI</a></li>
     </ul>
   </div>
@@ -40,9 +45,26 @@
   <div class="main">
     <div class="content">
       <div class="header sticky" id="myHeader">
-        <h1>Tutorial 7 - Multi Voxel Pattern Analysis (MVPA)</h1>
+        <h1>Tutorial 4 ½ - Optimizing Block Designs</h1>
       </div>
+      <br>
+      <br>
 
+
+      <div class="row-container">
+
+        <iframe id="frame1"  frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="resizeIframe(this)"
+                allowtransparency="false" src='Tutorial4_BlockDesigns_Content1.html'></iframe>
+
+        <input type="button" width="25" value="Show/Hide" onclick="loadPage('widget1');"/>
+        <div id='widget1' style="display: none;">
+          <iframe id="temporal_filtering_widget" width="950" height="625" scrolling="no" src='http://129.100.246.41:5006/TemporalFiltering'></iframe>
+        </div>
+
+        <iframe id="frame2"  frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="resizeIframe(this)"
+                allowtransparency="false" src='Tutorial4_BlockDesigns_Content2.html'></iframe>
+
+      </div>
 
 
 

@@ -32,7 +32,8 @@
       <li><a href="Tutorial1.html"><i class="fa fa-envelope"></i>fMRI Data Structures</a></li>
       <li><a href="Tutorial2.html"><i class="fa fa-envelope"></i>General Linear Model</a></li>
       <li><a href="Tutorial3.html"><i class="fa fa-envelope"></i>Motion Artifacts</a></li>
-      <li class="active"><a href="Tutorial4.html"><i class="fa fa-envelope"></i>Smoothing & Block Designs</a></li>
+      <li class="active"><a href="Tutorial4.html"><i class="fa fa-envelope"></i>Spatiotemporal Smoothing</a></li>
+      <li><a href="Tutorial4_1.html"><i class="fa fa-envelope"></i>Block Designs</a></li>
       <li><a href="Tutorial5.html"><i class="fa fa-envelope"></i>ER Designs & Deconvolution</a></li>
       <li><a href="Tutorial6.html"><i class="fa fa-envelope"></i>Spatial Normalization and Group GLM</a></li>
       <li><a href="Tutorial6_1.html"><i class="fa fa-envelope"></i>ROI Analysis & Non-Independence</a></li>
@@ -44,16 +45,28 @@
   <div class="main">
     <div class="content">
       <div class="header sticky" id="myHeader">
-        <h1>Tutorial 4 - fMRI Preprocessing & Quality - Spatiotemporal Smoothing and Optimizing Block Designs</h1>
+        <h1>Tutorial 4 - fMRI Preprocessing & Quality - Spatiotemporal Smoothing</h1>
       </div>
+      <br>
       <br>
       <br>
 
 
       <div class="row-container">
-        <iframe id="frame1"  frameBorder="0" scrolling="yes" height="300" src='Tutorial4_Content1.html'></iframe>
+
+        <iframe id="frame1"  frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="resizeIframe(this)"
+                allowtransparency="false" src='Tutorial4_Smoothing_Content1.html'></iframe>
+
         <iframe id="linear_drift_widget" width="950" height="625" scrolling="no" src='http://129.100.246.41:5006/LinearDriftFilter'></iframe>
-        <iframe id="frame2" class="row" frameBorder="0" scrolling="no" onload="resizeIframe(this)" src='Tutorial4_Content2.html'></iframe>
+
+        <iframe id="frame2"  frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="resizeIframe(this)"
+                allowtransparency="false" src='Tutorial4_Smoothing_Content2.html'></iframe>
+
+        <iframe id="temporal_filtering_widget" width="950" height="625" scrolling="no" src='http://129.100.246.41:5006/TemporalFiltering'></iframe>
+
+        <iframe id="frame3"  frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="resizeIframe(this)"
+                allowtransparency="false" src='Tutorial4_Smoothing_Content3.html'></iframe>
+
       </div>
 
 
